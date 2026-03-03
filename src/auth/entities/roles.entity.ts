@@ -10,7 +10,7 @@ import {
 
 export enum RoleType {
   admin = 'admin',
-  regular = 'regular',
+  client = 'client',
   professional = 'professional',
 }
 
@@ -22,7 +22,7 @@ export class Role {
   @Column({
     type: 'enum',
     enum: RoleType,
-    default: RoleType.regular,
+    default: RoleType.client,
   })
   type: RoleType;
 
