@@ -13,7 +13,7 @@ Accede a la interfaz Swagger UI en: `http://localhost:3000/docs`
     - `lastName` (string, requerido)
     - `username` (string, requerido)
     - `password` (string, requerido)
-    - `roles` (enum: `regular` | `professional` | `admin`, requerido)
+    - `roles` (enum: `cliente` | `professional` | `admin`, requerido)
   - Response 201: `UserResponseDto` (id, email, username, firstName?, lastName?, createdAt, updatedAt)
 
 ## Cómo levantar la app y ver Swagger
