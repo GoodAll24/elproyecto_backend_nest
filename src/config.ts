@@ -13,9 +13,11 @@ export const appConfig = registerAs('app', () => ({
   environment: getEnvVar('NODE_ENV', 'development'),
 }));
 export const databaseConfig = registerAs('database', () => ({
-  host: getEnvVar('MYSQL_HOST', 'localhost'),
-  port: parseInt(getEnvVar('MYSQL_PORT', '3306'), 10),
-  username: getEnvVar('MYSQL_USERNAME', 'root'),
-  password: getEnvVar('MYSQL_PASSWORD', 'root'),
-  name: getEnvVar('MYSQL_NAME', 'profi_db'),
+  // DB_USERNAME=postgres
+  // DB_PASSWORD=postgres
+  host: getEnvVar('DB_HOST', 'localhost'),
+  port: parseInt(getEnvVar('DB_PORT', '5432'), 10),
+  username: getEnvVar('DB_USERNAME', 'postgres'),
+  password: getEnvVar('DB_PASSWORD', 'postgres'),
+  name: getEnvVar('DB_DATABASE', 'profi_db'),
 }));
