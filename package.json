@@ -11,7 +11,7 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migration:run": "npm run typeorm migration:run -- -d src/config/data-source.config.ts",
     "migration:revert": "npm run typeorm migration:revert -- -d src/config/data-source.config.ts",
-    "migration:create": "npm run typeorm migration:create ./src/migrations/${MIGRATION_NAME}",
+    "migration:create": "npm run typeorm migration:create ./src/migrations/${MN}",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",

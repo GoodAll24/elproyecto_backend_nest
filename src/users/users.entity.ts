@@ -4,14 +4,15 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  DeleteDateColumn,
   BeforeInsert,
   BeforeUpdate,
+  ManyToOne,
 } from 'typeorm';
 import { Transform } from 'class-transformer';
-import { IsBoolean, IsEmail, IsUUID, MinLength } from 'class-validator';
+import { IsEmail, IsUUID, MinLength } from 'class-validator';
 import { v4 as uuidv4 } from 'uuid';
 import { hash } from 'bcrypt';
+import { Role } from '@app/auth/entities/roles.entity';
 
 @Entity('users')
 export class User {
@@ -31,11 +32,16 @@ export class User {
   lastName: string;
 
   @Column({ unique: true, length: 255, nullable: false })
+  @MinLength(4, { message: 'username muy corto' })
+  @Transform(({ value }) => value?.toLowerCase().trim())
   username: string;
 
-  @Column({ length: 255, nullable: false })
+  @Column({ length: 90, nullable: false })
   @MinLength(6, { message: 'La contraseña debe tener al menos 6 caracteres' })
   password: string;
+
+  @ManyToOne(() => Role)
+  role: Role;
 
   @CreateDateColumn()
   createdAt: Date;

@@ -1,5 +1,6 @@
+import { RoleType } from '@app/auth/entities/roles.entity';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsEnum, IsString } from 'class-validator';
 
 export class CreateUserDto {
   @ApiProperty({
@@ -43,6 +44,13 @@ export class CreateUserDto {
   @IsString()
   password: string;
 
+  @ApiProperty({
+    description: 'roles del usuario',
+    examples: ['regular', 'professional', 'admin'],
+    required: true,
+  })
+  @IsEnum(RoleType)
+  roles: RoleType;
   // @ApiProperty({
   //   description: 'si el usuario esta usable o no',
   //   example: true,
