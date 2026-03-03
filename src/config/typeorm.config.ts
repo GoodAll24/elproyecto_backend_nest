@@ -2,9 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
 import { join } from 'path';
 
-export const getTypeOrmConfig = (
-  configService: ConfigService,
-): TypeOrmModuleOptions => {
+export const getTypeOrmConfig = (configService: ConfigService): TypeOrmModuleOptions => {
   const isProduction = configService.get<string>('NODE_ENV') === 'production';
   const dbSSL = configService.get<boolean>('DB_SSL');
 
@@ -12,9 +10,7 @@ export const getTypeOrmConfig = (
   if (isProduction) {
     const synchronize = configService.get<string>('DB_SYNCHRONIZE');
     if (synchronize === 'true') {
-      throw new Error(
-        'DB_SYNCHRONIZE cannot be true in production environment',
-      );
+      throw new Error('DB_SYNCHRONIZE cannot be true in production environment');
     }
   }
 

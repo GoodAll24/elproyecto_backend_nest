@@ -17,9 +17,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE,
   entities: [join(__dirname, '..', '**', '*.entity.{ts,js}')],
   migrations: [join(__dirname, '..', 'migrations', '*.migration.{ts,js}')],
-  synchronize:
-    process.env.NODE_ENV === 'development' &&
-    process.env.DB_SYNCHRONIZE === 'true',
+  synchronize: process.env.NODE_ENV === 'development' && process.env.DB_SYNCHRONIZE === 'true',
   logging: process.env.NODE_ENV !== 'production',
   ssl:
     isProduction && dbSSL === 'true'

@@ -19,9 +19,7 @@ export class CreatingRoleTables1766374828905 implements MigrationInterface {
                 constraint "PK748927763476287462" primary key("id")
             )`,
     );
-    await queryRunner.query(
-      `create index "IDX_239136ijjsfjl34789ae2daf" on "roles" ("name") `,
-    );
+    await queryRunner.query(`create index "IDX_239136ijjsfjl34789ae2daf" on "roles" ("name") `);
     await queryRunner.query(
       `alter table "users"
                 add column "roleId" uuid not null`,

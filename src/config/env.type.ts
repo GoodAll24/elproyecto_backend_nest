@@ -56,9 +56,7 @@ class EnvironmentVariables {
   DB_SSL?: boolean;
 
   // Security validation for production
-  @ValidateIf(
-    (o: EnvironmentVariables) => o.NODE_ENV === Environment.Production,
-  )
+  @ValidateIf((o: EnvironmentVariables) => o.NODE_ENV === Environment.Production)
   @IsBoolean()
   @IsIn([false], { message: 'DB_SYNCHRONIZE must be false in production' })
   DB_SYNCHRONIZE_PROD?: boolean;
@@ -195,10 +193,7 @@ export function validate(config: Record<string, unknown>) {
 
   if (errors.length) {
     const errorMessages = errors
-      .map(
-        (error) =>
-          `${error.property}: ${Object.values(error.constraints || {}).join(', ')}`,
-      )
+      .map((error) => `${error.property}: ${Object.values(error.constraints || {}).join(', ')}`)
       .join('\n');
 
     throw new Error(`Environment validation failed:\n${errorMessages}`);

@@ -16,9 +16,7 @@ export class CreateAuthTables1766282958527 implements MigrationInterface {
             foreign key("userId") references "users"("id") on delete set null
         )`,
     );
-    await queryRunner.query(
-      `create index "IDX_23913689296f403b4789ae2daf" on "loginData" ("ip") `,
-    );
+    await queryRunner.query(`create index "IDX_23913689296f403b4789ae2daf" on "loginData" ("ip") `);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

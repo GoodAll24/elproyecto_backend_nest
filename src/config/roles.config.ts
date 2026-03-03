@@ -2,8 +2,7 @@ import { RoleType } from '@app/auth/entities/roles.entity';
 export const rolesConfig = [
   {
     name: RoleType.client,
-    description:
-      'role del usuario regular, que tiene acceso limitado a los servicios',
+    description: 'role del usuario regular, que tiene acceso limitado a los servicios',
   },
   {
     name: RoleType.admin,

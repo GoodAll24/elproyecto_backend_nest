@@ -8,6 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format-me":"npx prettier --write \"src/**/*.{ts,js,tsx,jsx,json,md,yml,yaml}\"",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migration:run": "npm run typeorm migration:run -- -d src/config/data-source.config.ts",
     "migration:revert": "npm run typeorm migration:revert -- -d src/config/data-source.config.ts",
